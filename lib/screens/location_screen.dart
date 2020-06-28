@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:clima/utilities/constants.dart';
 import 'package:clima/services/weather.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
+
 import 'city_screen.dart';
 
 class LocationScreen extends StatefulWidget {
@@ -65,7 +65,6 @@ class _LocationScreenState extends State<LocationScreen> {
                 children: <Widget>[
                   FlatButton(
                     onPressed: () async {
-                      
                       var weatherdata = await weather.getlocationweather();
                       updateui(weatherdata);
                     },
@@ -75,7 +74,7 @@ class _LocationScreenState extends State<LocationScreen> {
                     ),
                   ),
                   FlatButton(
-                    onPressed: () async{
+                    onPressed: () async {
                       var typedcity = await Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -83,13 +82,12 @@ class _LocationScreenState extends State<LocationScreen> {
                             return CityScreen();
                           },
                         ),
-                      
                       );
-                      if (typedcity!=null){
-                        var weatherdata = await weather.getcityweather(typedcity);
+                      if (typedcity != null) {
+                        var weatherdata =
+                            await weather.getcityweather(typedcity);
                         updateui(weatherdata);
                       }
-                      
                     },
                     child: Icon(
                       Icons.location_city,
